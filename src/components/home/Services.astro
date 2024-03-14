@@ -1,0 +1,122 @@
+---
+const services = [
+  {
+    step: "01",
+    image: "/assets/de-matterport-thumb-500x300.jpg",
+    name: "Matterport Services",
+    description:
+      "Transform spaces into immersive digital experiences with Matterport 3D scanning, perfect for real estate, architectural visualization, and interactive marketing.",
+    link: "/services/matterport",
+  },
+  {
+    step: "02",
+    image: "/assets/de-360-tour-thumb-500x300.jpg",
+    name: "360° Virtual Tours",
+    description:
+      "Discover spaces in panoramic detail with our 360° Virtual Tours, ideal for real estate showcases, tourism experiences, and educational virtual visits.",
+    link: "/services/virtual_tours",
+  },
+  {
+    step: "03",
+    image: "/assets/de-drone-services-thumb-500x300.jpg",
+    name: "Drone Services",
+    description:
+      "Capture new perspectives with Drone Services, offering aerial views, land surveys, and photogrammetry for real estate, cinematic content, and topographic analysis.",
+    link: "/services/drone",
+  },
+  {
+    step: "04",
+    image: "/assets/de-google-street-view-thumb-500x300.jpg",
+    name: "Google Street View",
+    description:
+      "Enhance your online footprint with our Google Street View integration, showcasing your location globally, perfect for businesses aiming to boost digital presence.",
+    link: "/services/google_street_view",
+  },
+  {
+    step: "05",
+    image: "/assets/de-vr-thumb-500x300.jpg",
+    name: "Virtual Reality",
+    description:
+      "Immerse in new dimensions with our Virtual Reality services, creating captivating experiences for innovative marketing, training, and interactive exploration.",
+    link: "/services/virtual_reality",
+  },
+  {
+    step: "06",
+    image: "/assets/de-project-timelapse-thumb-500x300.jpg",
+    name: "Project Timelapse",
+    description:
+      "Visualize progress dynamically with our Project Timelapse service, ideal for construction documentation, event recording, and environmental monitoring.",
+    link: "/services/project_timelapse",
+  },
+];
+---
+
+<section class="py-16 sm:py-20">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="flex flex-col gap-12 sm:gap-16">
+      <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Services</h2>
+      <div class="grid gap-8 lg:grid-cols-3">
+        {
+          services.map((service) => (
+            <div class="bg-darkBlue/10 dark:bg-bright-blue/10 flex hover:ring-2 hover:ring-current/50 hover:ring-opacity-2 dark:hover:ring-opacity-2 flex-col gap-12 rounded-3xl px-6 py-8 relative bg-cover bg-bottom bg-no-repeat hover:bg-[url('/assets/de-hero-bg-03.png')] transition-all ease-in-out delay-150">
+              <img
+                class="w-full h-auto rounded-2xl"
+                src={service.image}
+                alt=""
+              />
+              <p class="text-[6rem] font-medium absolute text-navyBlue dark:text-white mix-blend-overlay px-3 bottom-0 right-0">
+                {service.step}
+              </p>
+              <div class="flex flex-col gap-4">
+                <h3 class="text-xl font-medium">{service.name}</h3>
+                <p class="text-primary-950/70 dark:text-primary-200/70 text-base sm:text-lg">
+                  {service.description}
+                </p>
+              </div>
+              <a
+                href={service.link}
+                class="focus-visible:outline-primary-600 dark:focus-visible:outline-primary-400 dark:text-bright-blue inline-flex items-center justify-start rounded-full border border-transparent text-base font-medium text-navyBlue transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+              >
+                Learn More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z"></path></svg>
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .card {
+    /* Card styling */
+    position: relative;
+    overflow: hidden;
+  }
+
+  .line {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: solid 2px transparent;
+    border-radius: inherit;
+  }
+
+  @keyframes line-shine {
+    0%,
+    100% {
+      transform: rotate(0deg);
+      border-color: transparent;
+    }
+    50% {
+      transform: rotate(1turn);
+      border-color: white;
+    }
+  }
+
+  .hover\:line-animate:hover .line {
+    animation: line-shine 2s linear infinite;
+  }
+</style>
