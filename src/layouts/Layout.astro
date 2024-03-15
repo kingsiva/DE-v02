@@ -1,9 +1,9 @@
 ---
-import '@fontsource/poppins/400.css';
-import '@fontsource/poppins/500.css';
-import { ViewTransitions } from 'astro:transitions';
-import Footer from '../components/layout/Footer.astro';
-import Header from '../components/layout/Header.astro';
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/500.css";
+import { ViewTransitions } from "astro:transitions";
+import Footer from "../components/layout/Footer.astro";
+import Header from "../components/layout/Header.astro";
 
 interface Props {
   description: string;
@@ -13,7 +13,7 @@ interface Props {
 const { description, title } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" x-cloak x-data :class="{ 'dark': $store.theme.isDark }">
   <head>
     <meta charset="utf-8" />
@@ -24,13 +24,16 @@ const { description, title } = Astro.props;
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
-    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"
+    ></script>
     <style>
       .bg-light {
-      background-image: url('/assets/de-web-banner-light.jpg');
+        background-image: url("/assets/de-web-banner-light.jpg");
       }
       .bg-dark {
-        background-image: url('/assets/de-web-banner-dark.jpg');
+        background-image: url("/assets/de-web-banner-dark.jpg");
       }
     </style>
     <title>{title}</title>
@@ -50,18 +53,21 @@ const { description, title } = Astro.props;
       }
     </style>
     <script>
-      import Alpine from 'alpinejs';
-      import collapse from '@alpinejs/collapse';
+      import Alpine from "alpinejs";
+      import collapse from "@alpinejs/collapse";
 
       Alpine.plugin(collapse);
 
-      Alpine.store('theme', {
+      Alpine.store("theme", {
         init() {
           this.isDark = (() => {
-            if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-              return localStorage.getItem('theme') === 'dark';
+            if (
+              typeof localStorage !== "undefined" &&
+              localStorage.getItem("theme")
+            ) {
+              return localStorage.getItem("theme") === "dark";
             }
-            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
               return true;
             }
             return false;
@@ -72,7 +78,7 @@ const { description, title } = Astro.props;
 
         toggle() {
           this.isDark = !this.isDark;
-          localStorage.setItem('theme', this.isDark ? 'dark' : 'light');
+          localStorage.setItem("theme", this.isDark ? "dark" : "light");
         },
       });
 
