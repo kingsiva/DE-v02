@@ -130,15 +130,4 @@
       </div>
     </div>
   </div>
-  <script>
-    // Add an event listener to close the modal and pause the video
-    document.getElementById("modal").addEventListener("click", function (event) {
-        if (event.target === this) {
-          // Pause the YouTube video when the modal is clicked outside the video area
-          var iframe = this.querySelector("iframe");
-          var videoSrc = iframe.src;
-          iframe.src = videoSrc;
-        }
-      });
-  </script>
 </section>
